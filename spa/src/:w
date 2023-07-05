@@ -1,0 +1,76 @@
+* {
+    color: #aaa;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+svg {
+    fill: #aaa;
+}
+
+#root {
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.board {
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.board-name {
+    text-align: center;
+}
+
+.board-list {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    flex-grow: 1;
+    list-style: none;
+
+    padding: 15px;
+}
+
+.board-list>ul {
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.board-item {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+
+.mkdir {
+    display: flex;
+    gap: 10px;
+}
+
+.mkdir>input {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    flex-grow: 1;
+
+    padding: 5px;
+}
+
+.mkdir>button {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}

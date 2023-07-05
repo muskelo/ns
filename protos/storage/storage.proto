@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option go_package =  "github.com/muskelo/ns_server/protos/storage";
+
+
+message MkdirRequest {
+    string path = 1;
+}
+message MkdirResponse {
+}
+
+message ReadDirRequest {
+    string path = 1;
+}
+message ReadDirResponse {
+    message File {
+        string name = 1;
+        string path = 2;
+    }
+    message Dir {
+        string name = 1;
+        string path = 2;
+    }
+    repeated File files = 1;
+    repeated Dir dirs = 2;
+}
+
+message RemoveRequest {
+    string path = 1;
+}
+message RemoveResponse {
+}
+
+message DownloadRequest {
+}
+message DownloadResponse {
+    bytes chunk = 1;
+}
+
+message UploadRequest {
+    bytes chunk = 1;
+}
+message UploadResponse {
+}
+
+
+service StorageService {
+  rpc Mkdir(MkdirRequest) returns (MkdirResponse);
+  rpc ReadDir(ReadDirRequest) returns (ReadDirResponse);
+  rpc Remove(RemoveRequest) returns (RemoveResponse);
+
+  rpc Download(DownloadRequest) returns (stream DownloadResponse);
+  rpc Upload(stream UploadRequest) returns (UploadResponse);
+}
